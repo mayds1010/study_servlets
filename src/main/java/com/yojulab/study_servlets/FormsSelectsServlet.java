@@ -34,7 +34,7 @@ public class FormsSelectsServlet extends HttpServlet {
         printWriter.println("<select class='form-select' aria-label=''>");
         printWriter.println("<option selected>Open this select menu</option>");
         printWriter.println("<option value='M01'>One</option>");
-        printWriter.println("<option value='M02'>Two</option>");
+        printWriter.println("<option value='M02' selected>Two</option>");
         printWriter.println("<option value='M03'>Three</option>");
         printWriter.println("</select>");
         printWriter.println("</div>");
