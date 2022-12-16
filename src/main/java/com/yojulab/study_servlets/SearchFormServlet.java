@@ -12,7 +12,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns="/searchFormServlet")
 public class SearchFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        response.setContentType("text/html;charset=UTF-8");
+      String firstName = request.getParameter("firstName"); //추가
+      String secondName = request.getParameter("secondName");  //추가
+      response.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = response.getWriter();
 
         DatasInfor datasInfor = new DatasInfor();
@@ -40,6 +42,15 @@ public class SearchFormServlet extends HttpServlet {
         printWriter.println("<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'");
         printWriter.println("integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4'");
         printWriter.println("crossorigin='anonymous'></script>");
+        //-------추가
+        printWriter.println("<div>firstName : " +firstName+"</div>");
+        printWriter.println("<div>secondName : " +secondName+"</div>");
+        printWriter.println(" <form action='/searchFormServlet' method='get'>");
+        printWriter.println(" <input type='text'name='firstName' id='' value='"+firstName+"'/>");
+        printWriter.println("<input type='text' name='secondName' id='' value=' " +secondName+"' />");
+        printWriter.println("<button>searchFormServlet</button>");
+        printWriter.println("</form>");
+        //--------추가
         printWriter.println("</body>");
 
         printWriter.println("</html>");
