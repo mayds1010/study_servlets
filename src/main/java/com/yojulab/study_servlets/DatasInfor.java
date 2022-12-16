@@ -3,7 +3,7 @@ package com.yojulab.study_servlets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.yojulab.beans.MemberBean;
+import com.yojulab.study_servlets.beans.MemberBean;
 
 public class DatasInfor {
 
@@ -32,19 +32,18 @@ public class DatasInfor {
         HashMap<String, String> searchForm = datasInfor.getSearchFormData();
         ArrayList<String> tablesListWithString = datasInfor.getTablesListWithString();
 
-        // 앞에만 제대로 선언하면 가능. 둘 데이터를 합침
         HashMap<String, Object> bundlesData = new HashMap<>();
-        // 키는 다른이름 가능
         bundlesData.put("searchForm", searchForm);
         bundlesData.put("tablesListWithString", tablesListWithString);
 
-        bundlesData.put("dataWithMemberBean",datasInfor.getDataWithMemberBean());
-        bundlesData.put("dataListWithMemberBean",datasInfor.getDataListWithMemberBean());
+        bundlesData.put("dataWithMamberBean", datasInfor.getDataWithMamberBean());
+        bundlesData.put("dataListWithMemberBean", datasInfor.getDataListWithMemberBean());
+
 
         return bundlesData;
     }
 
-    public MemberBean getDataWithMemberBean(){
+    public MemberBean getDataWithMamberBean(){
         MemberBean memberBean = new MemberBean();
         memberBean.setFirstName("Mark");
         memberBean.setSecondName("Otto");
@@ -53,26 +52,25 @@ public class DatasInfor {
         return memberBean;
     }
 
- public ArrayList<MemberBean> getDataListWithMemberBean(){
-    ArrayList<MemberBean> membersList = new ArrayList<>(); 
-    MemberBean memberBean = new MemberBean();
-    memberBean.setFirstName("Mark");
-    memberBean.setSecondName("Otto");
-    memberBean.setHandleName("@mdo");
-    membersList.add(memberBean);
+    public ArrayList<MemberBean> getDataListWithMemberBean() {
+        ArrayList<MemberBean> membersList = new ArrayList<>();
+        MemberBean memberBean = new MemberBean();
+        memberBean.setFirstName("Mark");
+        memberBean.setSecondName("Otto");
+        memberBean.setHandleName("@mdo");
+        membersList.add(memberBean);
 
-    MemberBean memberBean02 = new MemberBean();
-    memberBean02.setFirstName("jacob");
-    memberBean02.setSecondName("Thornton");
-    memberBean02.setHandleName("@mfat");
-    membersList.add(memberBean02);
+        MemberBean memberBean02 = new MemberBean();
+        memberBean02.setFirstName("Jacob");
+        memberBean02.setSecondName("Thornton");
+        memberBean02.setHandleName("@fat");
+        membersList.add(memberBean02);
 
-    MemberBean memberBean03 = new MemberBean();
-    memberBean03.setFirstName("Larry");
-    memberBean03.setSecondName("Bird");
-    memberBean03.setHandleName("@twitter");
-    membersList.add(memberBean03);
-
-    return membersList;
- }
+        MemberBean memberBean03 = new MemberBean();
+        memberBean03.setFirstName("Larry");
+        memberBean03.setSecondName("Bird");
+        memberBean03.setHandleName("@twitter");
+        membersList.add(memberBean03);
+        return membersList;
+    }
 }
