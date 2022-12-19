@@ -17,9 +17,9 @@ public class CreateCookieServlets extends HttpServlet{
         response.setContentType("text/html;charset=UTF-8");
 
         // Cookie
-        Cookie cookie_first = new Cookie("firstName", "Yoju");
+        Cookie cookie_first = new Cookie("firstName", "Yoju"); //선언
         Cookie cookie_second = new Cookie("secondName", "Lab");
-        response.addCookie(cookie_first);
+        response.addCookie(cookie_first); //내보내기
         response.addCookie(cookie_second);
         // display
         PrintWriter printWriter = response.getWriter();

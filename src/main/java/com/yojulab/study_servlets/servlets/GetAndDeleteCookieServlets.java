@@ -21,16 +21,16 @@ public class GetAndDeleteCookieServlets extends HttpServlet{
         printWriter.println("<div>Get and Delete Cookie Servlets</div>");
 
         // get Cookie
-        Cookie cookies[] = request.getCookies();
-        for(Cookie cookie : cookies) {
-            String name = cookie.getName();
+        Cookie cookies[] = request.getCookies();//한번에 다 뭉쳐서 오기때문에 ArrayList
+        for(Cookie cookie : cookies) { //ArrayList여서 반복
+            String name = cookie.getName(); //값들 가져오기
             String value = cookie.getValue();
             printWriter.println("<div>Cookie Name : "+name+", value : "+value+" </div>");
 
             // delete cookie
             if(name.equals("secondName")){
-                cookie.setMaxAge(0);
-                response.addCookie(cookie);
+                cookie.setMaxAge(0);//maxAge를 통해서 브라우저의 설정에 따라 일정 기간 동안 Cookie저장
+                response.addCookie(cookie);//보내기
             }
 
         }
