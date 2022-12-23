@@ -14,31 +14,27 @@
     <link rel="stylesheet" href="./css/commons.css" />
   </head>
   <body>
-    <%! int day = 3; %>
-    <form action="">
-      <div class="container">
-        <div class="fs-3">Search Form JSP</div>
-        <div>
-          <label for="" class="form-lable">Search with Name</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Input Name"
-            name=""
-            id=""
-          />
+  <div>Check Login</div>
+    <div>username : <%= session.getAttribute("username") %></div>
+    <div>password : <%= session.getAttribute("password") %></div>
+    <div>ID : <%= session.getId() %></div>
+    <% int day = 3; %>
+    <form action=''>
+        <div class='container'>
+            <div class='fs-3'>Search Form JSP</div>
+            <div>
+                <label for='' class='form-label'>Search with Name</label>
+                <input type='text' class='form-control' placeholder='Input Name' name='' id=''>
+            </div>
+            <% if (day == 1 || day == 7) { %>
+                <div> Today is Weekend ! <%= day %></div>
+            <% } else { %>
+                <div> Today is Not Weekend ! <%= day %></div>
+            <% } %>
         </div>
-        <% if(day == 1 || day == 7) { %>
-        <div>Today is weekend! <%= day %></div>
-        <% } else { %>
-        <div>Today is not weekend! <%= day %></div>
-        <% } %>
-      </div>
     </form>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4'
+        crossorigin='anonymous'></script>
   </body>
 </html>
