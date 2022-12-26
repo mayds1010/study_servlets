@@ -35,8 +35,7 @@
          HashMap<String, Object> answer = answer_list.get(i);
     %>
        <div> (<%= answer.get("ORDERS") %>) <%=  answer.get ("EXAMPLE") %> </div>
-       <%-- <div> (2) 아니다 </div>
-       <div> (3) 보통이다 </div> --%>
+    
        <% } %>
     </div>
 </body>
