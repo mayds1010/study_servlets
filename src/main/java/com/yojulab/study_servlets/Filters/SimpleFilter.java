@@ -1,4 +1,4 @@
-package com.yojulab.study_servlets.Filters;
+package com.yojulab.study_servlets.filters;
 
 import java.io.IOException;
 
