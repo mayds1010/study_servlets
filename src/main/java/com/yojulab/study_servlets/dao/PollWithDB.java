@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PollWithDB {
-    public ArrayList<HashMap> getAnswer(String questionUid) throws SQLException{
+    public ArrayList<HashMap> getAnswerList(String questionUid) throws SQLException{
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();

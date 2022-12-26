@@ -3,6 +3,7 @@ package com.yojulab.study_servlets.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.yojulab.study_servlets.dao.PollWithDB;
@@ -24,19 +25,27 @@ public class PollDetailServlets extends HttpServlet {
         // biz with DB and Class
         PollWithDB pollWithDB = new PollWithDB();
         HashMap<String, Object> question = null;
+        ArrayList<HashMap> answer_list = null;
         try {
             question = pollWithDB.getQuestion(questions_Uid);
             System.out.println(question.get("QUESTIONS_UID"));
             System.out.println(question.get("QUESTIONS"));
             System.out.println(question.get("ORDERS"));
-            pollWithDB.getAnswer(questions_Uid);
+            answer_list = pollWithDB.getAnswerList(questions_Uid);//getAnswer call함
+        
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        for(int i = 0; i< answer_list.size(); i++){
+            HashMap<String, Object> answer = answer_list.get(i);
+            System.out.println(answer.get("ORDERS"));
+            System.out.println(answer.get("EXAMPLE"));
+        }
         // output with html
         request.setAttribute("question", question);
-        
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/polls/details.jsp");
+        request.setAttribute("answer_list", answer_list);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/polls/details.jsp"); //html을 편하게 하기 위한 서블릿
         requestDispatcher.forward(request, response);
     }
 }
