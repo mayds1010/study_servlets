@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.tomcat.util.digester.SystemPropertySource;
+
 import com.yojulab.study_servlets.dao.PollWithDB;
 
 import jakarta.servlet.RequestDispatcher;
@@ -15,7 +17,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/polls/PollServlet")
+@WebServlet(urlPatterns = "/polls/PollServlet") // web.xml
 public class PollDetailServlets extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,21 +33,20 @@ public class PollDetailServlets extends HttpServlet {
             System.out.println(question.get("QUESTIONS_UID"));
             System.out.println(question.get("QUESTIONS"));
             System.out.println(question.get("ORDERS"));
-            answer_list = pollWithDB.getAnswerList(questions_Uid);//getAnswer call함
-        
+            answer_list = pollWithDB.getAnswerList(questions_Uid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for(int i = 0; i< answer_list.size(); i++){
-            HashMap<String, Object> answer = answer_list.get(i);
+        for(int i=0;i < answer_list.size();i++){
+            HashMap<String, Object>  answer = answer_list.get(i);
             System.out.println(answer.get("ORDERS"));
             System.out.println(answer.get("EXAMPLE"));
         }
         // output with html
         request.setAttribute("question", question);
         request.setAttribute("answer_list", answer_list);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/polls/details.jsp"); //html을 편하게 하기 위한 서블릿
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/polls/details.jsp");
         requestDispatcher.forward(request, response);
     }
 }

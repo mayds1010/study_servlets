@@ -1,4 +1,5 @@
 <%-- (HttpServletRequest request, HttpServletResponse response) --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang='en'>
@@ -14,11 +15,12 @@
 </head>
 
 <body>
-    <%@ include file="navbars.jsp" %>
+
     <% 
         HashMap<String, String> searchForm = (HashMap<String, String>)request.getAttribute("searchForm"); 
         ArrayList<String> tablesListWithString = (ArrayList<String>)request.getAttribute("tablesListWithString");
     %>
+    <%@ include file="navbars.jsp" %>
     <div class='container'>
         <div class='fs-3'>Tables Normal <%= searchForm.get("search_key") %></div>
         <table class='table'>

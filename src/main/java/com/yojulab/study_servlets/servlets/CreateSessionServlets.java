@@ -35,4 +35,9 @@ public class CreateSessionServlets extends HttpServlet{ //로그인때 사용
         }
         printWriter.close();
     }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request, response);
+
+    }
 }

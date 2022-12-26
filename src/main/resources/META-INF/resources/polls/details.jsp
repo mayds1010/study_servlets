@@ -21,6 +21,9 @@
         <a href="/polls/PollServlet?QUESTIONS_UID=Q3">Q3</a> /
         <a href="/polls/PollServlet?QUESTIONS_UID=Q4">Q4</a> /
         <a href="/polls/PollServlet?QUESTIONS_UID=Q5">Q5</a>
+        
+         <%-- <% for (int i = 0; i < questionUIDs.size(); i++) { %>
+    <% String questionUID = questionUIDs.get(i); %> --%>
     </div>
     <div>
         <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS")%>
